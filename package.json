@@ -4,7 +4,8 @@
   "description": "WHOIS client for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "engines": {
     "node": ">=4.2.4"
@@ -29,6 +30,8 @@
     "underscore": "^1.9.1"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
+    "istanbul": "^0.4.5",
     "mocha": "^6.0.2"
   }
 }
