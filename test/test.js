@@ -5,7 +5,7 @@
  */
 const _ = require('underscore');
 const assert = require('assert');
-const whois = require('./index');
+const whois = require('..');
 
 describe('#lookup()', function() {
     it('should work with google.com', done =>
