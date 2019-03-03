@@ -1,0 +1,31 @@
+{
+  "name": "whois-raw",
+  "version": "0.1.0",
+  "description": "WHOIS client for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moneals/whois-raw.git"
+  },
+  "keywords": [
+    "whois",
+    "node"
+  ],
+  "author": "Michael Smith <michael@juniperbay.com> (http://www.michaelosmith.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moneals/whois-raw/issues"
+  },
+  "homepage": "https://github.com/moneals/whois-raw#readme",
+  "dependencies": {
+    "optimist": "^0.6.1",
+    "socks": "^2.2.2",
+    "underscore": "^1.9.1"
+  }
+}
