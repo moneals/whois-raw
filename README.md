@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/moneals/whois-raw.svg?branch=master)](https://travis-ci.org/moneals/whois-raw)[![Coverage Status](https://coveralls.io/repos/github/moneals/whois-raw/badge.svg?branch=master)](https://coveralls.io/github/moneals/whois-raw?branch=master)
 # whois-raw
 WHOIS client for Node that returns raw whois data. 
 
