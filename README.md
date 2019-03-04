@@ -52,7 +52,7 @@ You may pass an object in between the address and the callback function to tweak
             userId: "optional",
             password: "optional",
             type: 5,     // or 4
-    }
+	}
 }
 ```
 
