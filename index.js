@@ -9,7 +9,7 @@
  */
 const _ = require('underscore');
 const net = require('net');
-const socks = require('socks');
+const socks = require('socks').SocksClient;
 const punycode = require('punycode');
 const util = require('util');
 
@@ -156,23 +156,25 @@ this.lookup = (addr, options, done) => {
     if (proxy) {
         return socks.createConnection({
                 proxy,
-                target: {
+                destination: {
                     host: server.host,
-                    port: server.port
+                    port: server.port,
+                    type: server.type
                 },
-                timeout
+                command: 'connect',
+                timeout: timeout
             }
-            , (err, socket, info) => {
+            , (err, info) => {
                 if (err != null) {
                     return done(err);
                 }
                 if (timeout) {
-                    socket.setTimeout(timeout);
+                    info.socket.setTimeout(timeout);
                 }
 
-                _lookup(socket, done);
+                _lookup(info.socket, done);
 
-                return socket.resume();
+                return info.socket.resume();
             });
 
     } else {

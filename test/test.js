@@ -8,6 +8,7 @@ const assert = require('assert');
 const whois = require('..');
 
 describe('#lookup()', function() {
+    this.timeout(30000);
     it('should work with google.com', done =>
         whois.lookup('google.com', function(err, data) {
             assert.ifError(err);
@@ -188,6 +189,25 @@ describe('#lookup()', function() {
             return done();
         })
     );
+
+    //TODO call something like https://api.getproxylist.com/proxy?lastTested=300&protocol[]=socks5 to test proxy
+    // it('should work with proxy', done => {
+    //     var whoisOptions = {
+    //         proxy: {
+    //             host: '118.190.206.86',
+    //             port: 9999,
+    //             // userId: "optional",
+    //             // password: "optional",
+    //             type: 5,
+    //         },
+    //         timeout: 30000,
+    //     };
+    //     whois.lookup('google.com', whoisOptions, function (err, data) {
+    //         assert.ifError(err);
+    //         assert.notEqual(data.toLowerCase().indexOf('domain name: google.com'), -1);
+    //         return done();
+    //     })
+    // });
 
     return it('should work with currentzoology.org', done =>
         whois.lookup('currentzoology.org', function(err, data) {
