@@ -46,12 +46,12 @@ You may pass an object in between the address and the callback function to tweak
 	"timeout": 0,    // socket timeout, excluding this doesn't override any default timeout value
 	"verbose": false // setting this to true returns an array of responses from all servers
 	"bind": null     // bind the socket to a local IP address
-	"proxy": {         // (optional) SOCKS Proxy
-        host: '118.190.206.111',
-        port: 9999,
-        userId: "optional",
-        password: "optional",
-        type: 5,     // or 4
+	"proxy": {       // (optional) SOCKS Proxy
+            host: '118.190.206.111',
+            port: 9999,
+            userId: "optional",
+            password: "optional",
+            type: 5,     // or 4
     }
 }
 ```
