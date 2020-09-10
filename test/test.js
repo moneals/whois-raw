@@ -209,10 +209,34 @@ describe('#lookup()', function() {
     //     })
     // });
 
-    return it('should work with currentzoology.org', done =>
+    it('should work with currentzoology.org', done =>
         whois.lookup('currentzoology.org', function(err, data) {
             assert.ifError(err);
             assert.notEqual(data.toLowerCase().indexOf('currentzoology.org'), -1);
+            return done();
+        })
+    );
+
+    it('should work with clz.do', done =>
+        whois.lookup('clz.do', function(err, data) {
+            assert.ifError(err);
+            assert.notEqual(data.toLowerCase().indexOf('clz.do'), -1);
+            return done();
+        })
+    );
+
+    it('should work with orpheusmusic.com.ng', done =>
+        whois.lookup('orpheusmusic.com.ng', function(err, data) {
+            assert.ifError(err);
+            assert.notEqual(data.toLowerCase().indexOf('orpheusmusic.com.ng'), -1);
+            return done();
+        })
+    );
+
+    it('should work with cityradio.co.bw', done =>
+        whois.lookup('cityradio.co.bw', function(err, data) {
+            assert.ifError(err);
+            assert.notEqual(data.toLowerCase().indexOf('cityradio.co.bw'), -1);
             return done();
         })
     );

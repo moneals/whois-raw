@@ -114,7 +114,7 @@ this.lookup = (addr, options, done) => {
 
         return socket.on('close', err => {
             if (options.follow > 0) {
-                const match = data.replace(/\r/gm, '').match(/(ReferralServer|Registrar Whois|Whois Server|WHOIS Server|Registrar WHOIS Server):[^\S\n]*((?:r?whois|https?):\/\/)?(.*)/);
+                const match = data.replace(/\r/gm, '').match(/(ReferralServer|Registrar Whois|Whois Server|WHOIS Server|Registrar WHOIS Server):{1,2}[^\S\n]*((?:r?whois|https?):\/\/)?(.*)/);
                 if ((match != null) && (match[3] !== server.host)) {
                     options = _.extend({}, options, {
                             follow: options.follow - 1,
@@ -187,11 +187,15 @@ this.lookup = (addr, options, done) => {
             sockOpts.localAddress = options.bind;
         }
 
-        const socket = net.connect(sockOpts);
-        if (timeout) {
-            socket.setTimeout(timeout);
+        try {
+            const socket = net.connect(sockOpts);
+            if (timeout) {
+                socket.setTimeout(timeout);
+            }
+            return _lookup(socket, done);
+        } catch (conErr) {
+            return done(conErr);
         }
-        return _lookup(socket, done);
     }
 };
 
