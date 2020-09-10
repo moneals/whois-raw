@@ -1,6 +1,6 @@
 {
   "name": "whois-raw",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "WHOIS client for Node.js",
   "main": "index.js",
   "scripts": {
